@@ -15,6 +15,8 @@ pip install pydantic Pillow
 ```bash
 python main.py --image="RhythmGameSprites.png" --sprites=".sprites"
 python main.py --image="RhythmGameSprites.png" --sprites=".sprites" --output="output"
+python main.py --image="UICommon.png" --asset=".asset"
+python main.py --image="UICommon.png" --asset=".asset" --output="output"
 ```
 
 ### Demo
