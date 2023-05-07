@@ -136,7 +136,7 @@ class MPhysicsShapeItem(BaseModel):
     y: float
 
 
-class Base(BaseModel):
+class SpriteBase(BaseModel):
     m_Name: str
     m_Rect: MRect
     m_Offset: MOffset
@@ -154,8 +154,61 @@ class Base(BaseModel):
 
 
 class Sprite(BaseModel):
-    Base: Base
+    Base: SpriteBase
 
 
 class Sprites(BaseModel):
     __root__: list[Sprite]
+
+
+class MGameObject(BaseModel):
+    m_FileID: int
+    m_PathID: str
+
+
+class MScript(BaseModel):
+    m_FileID: int
+    m_PathID: str
+
+
+class Material(BaseModel):
+    m_FileID: int
+    m_PathID: str
+
+
+class MSprite(BaseModel):
+    name: str
+    x: int
+    y: int
+    width: int
+    height: int
+    borderLeft: int
+    borderRight: int
+    borderTop: int
+    borderBottom: int
+    paddingLeft: int
+    paddingRight: int
+    paddingTop: int
+    paddingBottom: int
+
+
+class MReplacement(BaseModel):
+    m_FileID: int
+    m_PathID: str
+
+
+class AssetBase(BaseModel):
+    m_GameObject: MGameObject
+    m_Enabled: int
+    m_Script: MScript
+    m_Name: str
+    material: Material
+    mSprites: list[MSprite]
+    mPixelSize: int
+    mReplacement: MReplacement
+    mCoordinates: int
+    sprites: list
+
+
+class Asset(BaseModel):
+    Base: AssetBase
